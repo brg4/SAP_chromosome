@@ -1,0 +1,81 @@
+ ##### PROGRAM DIRECTIVES #####
+ run = 2
+ output_dir = ../example/output/
+ output_label = example
+  ##### GROWTH PARAMETERS #####
+ grow_flag =            3
+ growth_target =        2000
+ final_species = ../example/input/final_species.dat
+ grow_energy_file = ../example/input/pot_grow.dat
+ max_growth =           20
+ initial_growth = 200
+ ring_init = 1
+ ref_node = -1
+ alpha_1 =     5.0000000000E+02
+ eta_1 =     5.0000000000E+02
+  min_iter_move =           30
+ alpha_2 =     1.0000000000E+02
+ eta_2 =     1.0000000000E+02
+  max_wait =          500
+ max_iter =        1000
+ err_check_freq =         1000
+ ##### DEFORMATION PARAMETERS #####
+ min_rep =           1
+ max_rep =           2
+ ergodic_flag =            1
+ move_energy_file = ../example/input/pot_move.dat
+ num_iter =         50
+ ref_init =            0
+ ref_wait =            0
+ ref_freq =           5
+ ref_mult =          200
+ kink_mult =        2000
+ kink_repeat =        0
+ obst_freq =            0
+ obst_mult = 10
+ max_iter =        50000
+ err_check_freq =           1000
+ ##### SYSTEM DESCRIPTION #####
+ dim =            3
+ N_nodes =        8
+ N_fixed =           0
+ N_species =            3
+ bound_type =            2
+ N_bounds =            1
+ obst_type =            -1
+ N_obst =          10
+ N_placed =          10
+ ##### bounds #####
+    51,     0,     0,     0
+ ##### placed obstacles #####
+1
+2
+3
+4
+5
+6
+7
+8
+9
+10
+ ##### obstacle coordinates #####
+1,3,-18,20,4
+2,3,2,-4,18
+3,3,-30,-36,16
+4,3,4,24,40
+5,3,10,22,-6
+6,3,-12,-40,-10
+7,3,16,-16,26
+8,3,-34,6,-26
+9,3,-32,-10,20
+10,3,26,-24,-20
+ ##### fixed nodes #####
+ ##### id, species, and node coordinates #####
+     1,     1,     0,     0,     0
+     2,     1,     1,     0,     0
+     3,     1,     2,     0,     0
+     4,     1,     2,     1,     0
+     5,     1,     2,     2,     0
+     6,     1,     1,     2,     0
+     7,     1,     0,     2,     0
+     8,     1,     0,     1,     0     

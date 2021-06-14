@@ -1,0 +1,330 @@
+!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+
+Parsing the main input file section-by-section, there should be no spaces between these sections in the actual input file.
+
+!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+
+
+
+!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+PART 1 - Program Directives
+!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+
+ ##### PROGRAM DIRECTIVES #####
+ run = 2
+ output_dir = ../example/output/
+ output_label = example
+
+ !!! Details !!!
+ run - 0 = no execution, 1 = serial execution, 2 = parallel execution
+ output_dir - directory for output files, it is suggested that an absolute path is used
+ output_label - label for the output files
+ 
+
+!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+Part 2 - Growth Parameters
+!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+
+ ##### GROWTH PARAMETERS #####
+ grow_flag =            5
+ growth_target =        2000
+ final_species = ../example/input/final_species.dat
+ grow_energy_file = ../example/input/pot_grow.dat
+ max_growth =           20
+ initial_growth = 200
+ ring_init = 1
+ ref_node = 750
+ alpha_1 =     5.0000000000E+03
+ eta_1 =     1.0000000000E+03
+  min_iter_move =           30
+ alpha_2 =     1.0000000000E+02
+ eta_2 =     1.0000000000E+02
+  max_wait =          500
+ max_iter =        1000
+ err_check_freq =         1000
+
+ !!! Details !!!
+ grow_flag - 0 = no growth, 1 = growth, 2 = cycle growth and movement, 3 = alternatively cycle growth and movement, 4 = 3 and initiate growth from reference node, 5 = 4 and only allow growth in portion opposite reference node
+ growth_target - target for final size
+ final_species - file used to define final species after growth completion
+ grow_energy_file - potential used for growth and motion during growth
+ max_growth - maximum size of growths that are attempted
+ initial_growth - amount grown before first cycle of movement
+ ring_init - 0 = start ring at user-specified location, 1 = randomly initialize ring location
+ ref_node - -1 = randomly choose reference node for growth options 4 and 5, X = reference node for growth options 4 and 5
+ alpha_1 - parameter 1 for number of iterations when moving
+ eta_1 - parameter 2 for number of iterations when moving
+ min_iter_move - minimum number of iterations when moving
+ alpha_2 - parameter 1 for number of nodes to add before moving
+ eta_2 - parameter 2 for number of nodes to add before moving
+ max_wait - maximum number of nodes to add before moving
+ max_iter - upper limit on iterations within while loops
+ err_check_freq - the frequency at which error-checking routines are performed and new restart files are written
+ 
+
+!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+Part 3 - Deformation Parameters
+!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+
+ ##### DEFORMATION PARAMETERS #####
+ min_rep =           1
+ max_rep =           1
+ ergodic_flag =            1
+ move_energy_file = ../example/input/pot_move.dat
+ num_iter =         500
+ ref_init =            0
+ ref_wait =            0
+ ref_freq =           5
+ ref_mult =          200
+ kink_mult =        2000
+ kink_repeat =        0
+ obst_freq =            0
+ obst_mult = 10
+ max_iter =        50000
+ err_check_freq =           20
+
+ !!! Details !!!
+ min_rep - number for minimum replicate
+ max_rep - number for maximum replicate, total replicate number is max_rep-min_rep+1
+ ergodic_flag - 0 = nonergodic sampling, 1 = ergodic sampling
+ move_energy_file - potential used for moving the ring
+ num_iter - number of iterations of moving the ring
+ ref_init - initial number of crankshaft moves before performing kink moves
+ ref_wait - number of iterations before which crankshaft moves are prohibited
+ ref_mult - multiplicity of crankshaft moves
+ kink_mult - multiplicity of kink moves
+ kink_repeat - number of kink moves to propagate along SAP from intial kink move
+ obst_freq - frequency at which we attempt to add unplaced obstacles
+ obst_mult - multiplicity of obstacle additions
+ max_iter - upper limit on iterations within while loops
+ err_check_freq - the frequency at which error_checking routines are performed and new restart files are written
+ 
+
+!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+Part 4 - System Description
+!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+
+ ##### SYSTEM DESCRIPTION #####
+ dim =            3
+ N_nodes =        8
+ N_fixed =           0
+ N_species =            3
+ bound_type =            2
+ N_bounds =            1
+ obst_type =            -1
+ N_obst =          10
+ N_placed =          10
+
+ !!! Details !!!
+ dim - number of dimensions for integer lattice
+ N_nodes - number of nodes in current configuration
+ N_fixed - number of nodes in current configuration that are fixed in space
+ N_species - number of species in current configuration
+ bound_type - 0 = no boundary, 1 = box boundary along different axes, 2 = spherical boundary, cylindrical boundary
+ N_bounds - number of boundary conditions
+ obst_type - -1 = use provided obstacle types, 0 = no obstacles, 1 = obstacles are points, 2 = obstacles are 1x1 stars, 3 = obstacles are 2x2 stars
+ N_obst - number of obstacles
+ N_placed - number of obstacles present
+ 
+
+!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+Part 5 - Bounds
+!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+
+ ##### bounds #####
+    51,     0,     0,     0
+
+ !!! Details !!!
+ bound_type = 1: direction, lower bound, upper bound
+ bound_type = 2: radius, center coord 1, center coord 2, etc.
+ bound_type = 3: radius, direction, height, center coord 1, center coord 2
+ 
+ 
+!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+Part 6 - Placed Obstacles
+!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+
+ ##### placed obstacles #####
+1
+2
+3
+4
+5
+6
+7
+8
+9
+10
+
+ !!! Details !!!
+ List of placed obstacles in ascending order.
+ 
+
+!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+Part 7 - Obstacle Coordinates
+!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+
+ ##### obstacle coordinates #####
+1,1,-18,20,4
+2,1,2,-4,18
+3,1,-30,-36,16
+4,1,4,24,40
+5,2,10,22,-6
+6,2,-12,-40,-10
+7,2,16,-16,26
+8,3,-34,6,-26
+9,3,-32,-10,20
+10,3,26,-24,-20
+
+!!! Details !!!
+List of obstacles in the format "id, obst_type, coordinate 1, coordinate 2, etc."
+
+
+!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+Part 8 - Fixed Nodes
+!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+
+ ##### fixed nodes #####
+
+ !!! Details !!!
+ List of fixed nodes in ascending order.
+ 
+
+!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+Part 9 - ID, Species, and Node Coordinates
+!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+
+ ##### id, species, and node coordinates #####
+     1,     1,     0,     0,     0
+     2,     1,     1,     0,     0
+     3,     1,     2,     0,     0
+     4,     1,     2,     1,     0
+     5,     1,     2,     2,     0
+     6,     1,     1,     2,     0
+     7,     1,     0,     2,     0
+     8,     1,     0,     1,     0
+
+ !!! Details !!!
+ List of nodes in the format "id, species, coordinate 1, coordinate 2, etc."
+ 
+
+!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+
+Parsing a potential input file section-by-section, there should be no spaces between these sections in the actual potential input file. All distances are measured in the lattice units and all energies are in units of kBT.
+
+!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+
+
+!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+Part 1 - Energy Scale and Potential Types
+!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+
+ ##### Energy Scale and Potential Types #####
+ beta = 1.0000E+00
+ V_nn_type = 1
+ V_bend_type = 1
+ V_twist_type = 1
+ V_coord_type = 0
+ V_obst_type = 0
+ V_spectwist_type = 1
+ V_pairwise_type = 0
+
+ !!! Details !!!
+ beta - thermodynamic beta
+ V_nn_type - 0 = no nearest-neighbor interactions, 1 = nearest-neighbor interactions
+ V_bend_type - 0 = no bending interaction, 1 = bending interaction
+ V_twist_type - 0 = no supercoiling, 1 = supercoiling
+ V_obst_type - 0 = no obstacle interactions (choose maximum of listed interactions)
+ V_coord_type - 0 = no interaction, 1 = harmonic potential (choose maximum of listed interactions)
+ V_spectwist_type - 0 = no species-specific twisting, 1 = species-specific twisting (choose maximum of listed interactions)
+
+
+!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+Part 2 - Numbers of Interactions
+!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+
+ ##### Numbers of Interactions #####
+ N_V_coord = 0
+ N_V_obst = 0
+ N_spectwist = 2
+ N_pairs = 0
+
+ !!! Details !!!
+ N_V_coord - number of coordinate interactions
+ N_V_obst - number of obstacle interactions
+ N_spectwist - number of species-specific twisting interactions
+ N_pairs - number of pairwise interactions
+ 
+
+!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+Part 3 - Nearest-neighbor parameters
+!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+
+##### V nn #####
+1.0000E+00
+
+!!! Details !!!
+The energy added by monomers being adjacent.
+
+
+!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+Part 4 - Bend parameters
+!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+
+##### V bend #####
+3.8720E+00
+
+!!! Details !!!
+The energy added due to a bend.
+
+
+!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+Part 5 - Coordinate parameters
+!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+
+##### V coord #####
+
+!!! Details !!!
+List of coordinate potentials
+
+
+!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+Part 6 - Obstacle parameters
+!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+
+##### V obst #####
+
+!!! Details !!!
+List of all obstacle coordinates.
+
+
+!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+Part 7 - Species twist parameters
+!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+
+##### V spectwist #####
+2,1
+-1.0000E+02
+3,1
+1.0000E+02
+
+!!! Details !!!
+species,twist potential type
+energy parameters
+
+
+!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+Part 8 - Species pairwise parameters
+!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+
+##### V pairwise #####
+2,3,2
+1.0000E+01
+
+!!! Details !!!
+species 1, species 2, pairwise potential type
+energy and distance parameters

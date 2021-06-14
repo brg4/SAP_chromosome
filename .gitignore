@@ -1,0 +1,39 @@
+# Compiled Sources #
+####################
+*.exe
+*.o
+*.mod
+*.so
+
+# Packages #
+############
+*.gz
+*.zip
+*.7z
+
+# Logs and Databases #
+######################
+*.log
+#*.inp
+
+
+# Input Directories #
+#####################
+/input/*
+
+# Output Directories #
+######################
+/output/*
+
+# Debugging Directories #
+#########################
+/debugging/*
+
+# Data Directories #
+####################
+/figures*/*
+/data*/*
+
+# Temporary Files #
+###################
+*~

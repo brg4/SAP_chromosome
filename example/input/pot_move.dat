@@ -1,0 +1,30 @@
+##### Energy Scale and Potential Types #####
+beta = 1.0000E+00
+V_nn_type = 1
+V_bend_type = 1
+V_twist_type = 1
+V_coord_type = 0
+V_obst_type = 0
+V_spectwist_type = 1
+V_pairwise_type = 2
+##### Numbers of Interactions #####
+N_V_coord = 0
+N_V_obst = 0
+N_spectwist = 2
+N_pairs = 1
+##### V nn #####
+1.0000E+00
+##### V bend #####
+3.8720E+00
+##### V twist #####
+0.0000E+00
+##### V coord #####
+##### V obst #####
+##### V spectwist #####
+2,1
+-1.0000E+01
+3,1
+1.0000E+01
+##### V pairwise #####
+4,5,2
+1.0000E+01
